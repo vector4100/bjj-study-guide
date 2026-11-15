@@ -48,7 +48,7 @@ let F,deck,pos,mode="cards",S=new Map(),busy=false;
 const ok=()=>F.items.filter(i=>S.get(i)===1),no=()=>F.items.filter(i=>S.get(i)===-1);
 function home(){
   const g=(cat,t)=>`<h2>${t}</h2><div class="grid">`+D.faixas.filter(f=>f.cat===cat).map(f=>`<button class="bt" data-f="${f.faixa}" style="background:${TH[f.faixa][0]};color:${TH[f.faixa][1]};${f.faixa==="Preta"?"box-shadow:inset 0 -5px 0 #dc2626":""}"><b>${f.faixa}</b><small>${f.items.length} itens</small></button>`).join("")+`</div>`;
-  $("app").innerHTML=`<div class="pad"><h1>Guia de Estudos</h1><div class="mut">De La Riva Floripa · cartas e lista</div>${g("Infantil/Juvenil","Infantil / Juvenil")}${g("Adulto","Adulto")}<p class="mut" style="font-size:.85rem;margin-top:20px">Nas cartas, deslize para a direita se você sabe e para a esquerda se precisa estudar. Também dá para ver tudo em lista.</p></div>`;
+  $("app").innerHTML=`<div class="pad"><h1>Guia de Estudos</h1><div class="mut">De La Riva Floripa · Escolha sua faixa e comece os estudos</div>${g("Infantil/Juvenil","Infantil / Juvenil")}${g("Adulto","Adulto")}<p class="mut" style="font-size:.85rem;margin-top:20px">Nas cartas, deslize para a direita se você sabe e para a esquerda se precisa estudar. Também dá para ver tudo em lista.</p></div>`;
   $("app").onclick=e=>{const b=e.target.closest("[data-f]");if(b){mode="cards";start(b.dataset.f,null,true)}};
 }
 function start(n,items,fresh){F=D.faixas.find(x=>x.faixa===n);
